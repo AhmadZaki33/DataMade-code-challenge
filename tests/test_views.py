@@ -20,8 +20,8 @@ def test_api_parse_raises_error(client):
     response = client.get(url, {'address': address_string})
     assert response.status_code == 400
     data = response.json()
-    assert 'detail' in data
+    assert 'error' in data
     assert (
-        'RepeatedLabelError' in data['detail'] or
-        'Unable to tag this string' in data['detail']
+        'Cannot parse address with repeated labels' in data['error'] or
+        'The provided string is not a valid address' in data['error']
     )
