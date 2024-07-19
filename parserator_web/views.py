@@ -18,9 +18,12 @@ class AddressParse(APIView):
             return Response({
                 'error': "Address parameter is required"
             }, status=400)
-
         try:
             address_components, address_type = self.parse(address)
+            if not self.is_valid_address(address_components):
+                return Response({
+                    'error': "The provided string is not a valid address"
+                }, status=400)
             return Response({
                 'address_components': address_components,
                 'address_type': address_type
@@ -37,3 +40,10 @@ class AddressParse(APIView):
     def parse(self, address):
         address_components, address_type = usaddress.tag(address)
         return address_components, address_type
+
+    def is_valid_address(self, address_components):
+        essential_parts = [
+            'AddressNumber', 'StreetName',
+            'PlaceName', 'StateName', 'ZipCode'
+        ]
+        return any(part in address_components for part in essential_parts)
