@@ -9,6 +9,10 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+
+# Install ESLint globally and check its version
+RUN npm install -g eslint && eslint -v
+
 # Create an app directory and set it as the working directory
 RUN mkdir /app
 WORKDIR /app
