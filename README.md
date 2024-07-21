@@ -1,4 +1,4 @@
-# DataMade Code Challenge: Parserator
+# DataMade Parserator Challenge Solution
 
 Hi DataMade Team,
 
