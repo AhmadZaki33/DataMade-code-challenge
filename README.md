@@ -36,13 +36,7 @@ The challenge was both fun and educational. Below is a summary of what I accompl
 - Implemented dynamic display of parsed address components.
 - Handled and displayed error messages directly on the frontend to enhance user experience.
 
-### Testing
-
-**Added Unit Tests:**
-- Created unit tests to ensure the API returns correct responses for valid and invalid addresses.
-- Verified that error messages are returned appropriately for different failure cases.
-
-### Deployment
+### Docker File
 
 **Docker Setup:**
 - Used Docker and Docker Compose for containerized development and testing.
@@ -50,23 +44,28 @@ The challenge was both fun and educational. Below is a summary of what I accompl
 - Integrated ESLint for JavaScript linting.
 - Added npm installation and ESLint setup in the Dockerfile.
 
+### Testing
+
+**Added Unit Tests:**
+- Created unit tests to ensure the API returns correct responses for valid and invalid addresses.
+- Verified that error messages are returned appropriately for different failure cases.
+
 **Passed All Tests:**
 - Successfully passed all unit tests and ESLint checks.
   - Python linting passed! 👍
   - JavaScript linting passed! 👍
   - `tests/test_views.py::test_api_parse_succeeds` PASSED
   - `tests/test_views.py::test_api_parse_raises_error` PASSED
-## Installation
+
+## Installation Instructions
 
 Development requires a local installation of [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/). These are the only two system-level dependencies you should need.
 
 Once you have Docker and Docker Compose installed, build the application containers:
-
+```
 docker-compose build
 ```
-
 Next, run the app:
-
 ```
 docker-compose up
 ```
@@ -74,11 +73,11 @@ docker-compose up
 The app will log to the console, and you should be able to visit it at http://localhost:8000.
 
 You can run the tests using Docker:
-
-```bash
+```
 docker-compose -f docker-compose.yml -f tests/docker-compose.yml run --rm app
 ```
 
 This project involved recreating the address parsing functionality of DataMade's Parserator service. Key tasks included implementing the parsing logic, enhancing error handling, wiring up the frontend form to the backend API, and ensuring comprehensive testing with unit tests.
 
+So excited and looking forward to your feedback!
 Thank you!
